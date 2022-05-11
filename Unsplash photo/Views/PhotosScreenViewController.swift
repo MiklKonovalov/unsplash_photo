@@ -7,11 +7,15 @@
 
 import UIKit
 
+protocol PhotosScreenViewControllerProtocol: AnyObject {
+    func configure(with: PhotosSevice)
+}
+
 class PhotosScreenViewController: UIViewController, UISearchBarDelegate {
     
     let photosService: PhotosSevice
-    //let mainPresenter = MainPresenter()
     let searchbar = UISearchBar()
+    let presenter: MainPresenterProtocol
     //var data = [Results]()
     //weak var photosOutputScreenDelegate: PhotosOutputScreenDelegate?
     
@@ -32,9 +36,9 @@ class PhotosScreenViewController: UIViewController, UISearchBarDelegate {
     
     //var presenter: MainViewPresenterProtocol?
     
-    init(photosService: PhotosSevice) {
+    init(photosService: PhotosSevice, presenter: MainPresenterProtocol) {
         self.photosService = photosService
-        //self.presenter = presenter
+        self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -45,6 +49,8 @@ class PhotosScreenViewController: UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        presenter.viewDidLoad()
+        
         view.backgroundColor = .white
         
         view.addSubview(mainCollectionView)
@@ -53,15 +59,10 @@ class PhotosScreenViewController: UIViewController, UISearchBarDelegate {
         
         setupConstraints()
         
-        //self.photosOutputScreenDelegate = mainPresenter
-        //self.photosOutputScreenDelegate?.getData()
-        
         self.searchbar.delegate = self
         
         self.mainCollectionView.delegate = self
         self.mainCollectionView.dataSource = self
-        
-        photosService.getPhotos(query: "Box")
         
         photosService.serviceDidChange = {
             DispatchQueue.main.async {
@@ -137,19 +138,10 @@ extension PhotosScreenViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-//extension PhotosScreenViewController: PhotosScreenProtocol {
-//    func setup() {
-//        
-//    }
-//    
-//    func setupData(data: [Results]) {
-//        self.data = data
-//    }
-//    
-//    func displayData(i: Int) {
-//          
-//    }
-//    
-//    
-//}
+extension PhotosScreenViewController: PhotosScreenViewControllerProtocol {
+    func configure(with service: PhotosSevice) {
+        
+    }
+    
+}
 
