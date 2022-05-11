@@ -17,7 +17,6 @@
 		C6676510282556C800CA6E0F /* UnsplashPhotoPicker in Frameworks */ = {isa = PBXBuildFile; productRef = C667650F282556C800CA6E0F /* UnsplashPhotoPicker */; };
 		C66765122825659000CA6E0F /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66765112825659000CA6E0F /* MainPresenter.swift */; };
 		C6676514282578A900CA6E0F /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6676513282578A900CA6E0F /* ImageCollectionViewCell.swift */; };
-		C66765162827DE9200CA6E0F /* PhotosScreenProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66765152827DE9200CA6E0F /* PhotosScreenProtocol.swift */; };
 		C66765182827E5AB00CA6E0F /* DetailsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66765172827E5AB00CA6E0F /* DetailsScreenViewController.swift */; };
 		C97B5B14C0E86F4B14CEE92F /* Pods_Unsplash_photo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72550FC05ECDBEA0905D5CCA /* Pods_Unsplash_photo.framework */; };
 /* End PBXBuildFile section */
@@ -37,7 +36,6 @@
 		C667650C2825537500CA6E0F /* PhotosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosService.swift; sourceTree = "<group>"; };
 		C66765112825659000CA6E0F /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		C6676513282578A900CA6E0F /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
-		C66765152827DE9200CA6E0F /* PhotosScreenProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosScreenProtocol.swift; sourceTree = "<group>"; };
 		C66765172827E5AB00CA6E0F /* DetailsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,7 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				C66764F628254EC800CA6E0F /* PhotosScreenViewController.swift */,
-				C66765152827DE9200CA6E0F /* PhotosScreenProtocol.swift */,
 				C6676513282578A900CA6E0F /* ImageCollectionViewCell.swift */,
 				C66765172827E5AB00CA6E0F /* DetailsScreenViewController.swift */,
 			);
@@ -129,7 +126,6 @@
 				5176CAE3A3FAC61552283C6B /* Pods-Unsplash photo.debug.xcconfig */,
 				480B13584F3FE17A63C42566 /* Pods-Unsplash photo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -182,7 +178,7 @@
 			);
 			mainGroup = C66764E628254EC800CA6E0F;
 			packageReferences = (
-				C667650E282556C800CA6E0F /* XCRemoteSwiftPackageReference "unsplash-photopicker-ios.git" */,
+				C667650E282556C800CA6E0F /* XCRemoteSwiftPackageReference "unsplash-photopicker-ios" */,
 			);
 			productRefGroup = C66764F028254EC800CA6E0F /* Products */;
 			projectDirPath = "";
@@ -256,7 +252,6 @@
 				C66764F728254EC800CA6E0F /* PhotosScreenViewController.swift in Sources */,
 				C66765122825659000CA6E0F /* MainPresenter.swift in Sources */,
 				C6676514282578A900CA6E0F /* ImageCollectionViewCell.swift in Sources */,
-				C66765162827DE9200CA6E0F /* PhotosScreenProtocol.swift in Sources */,
 				C667650D2825537500CA6E0F /* PhotosService.swift in Sources */,
 				C66765182827E5AB00CA6E0F /* DetailsScreenViewController.swift in Sources */,
 				C66764F328254EC800CA6E0F /* AppDelegate.swift in Sources */,
@@ -458,7 +453,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C667650E282556C800CA6E0F /* XCRemoteSwiftPackageReference "unsplash-photopicker-ios.git" */ = {
+		C667650E282556C800CA6E0F /* XCRemoteSwiftPackageReference "unsplash-photopicker-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/unsplash/unsplash-photopicker-ios.git";
 			requirement = {
@@ -471,7 +466,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		C667650F282556C800CA6E0F /* UnsplashPhotoPicker */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C667650E282556C800CA6E0F /* XCRemoteSwiftPackageReference "unsplash-photopicker-ios.git" */;
+			package = C667650E282556C800CA6E0F /* XCRemoteSwiftPackageReference "unsplash-photopicker-ios" */;
 			productName = UnsplashPhotoPicker;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -10,10 +10,7 @@ import UIKit
 class PhotosScreenViewController: UIViewController, UISearchBarDelegate {
     
     let photosService: PhotosSevice
-    //let mainPresenter = MainPresenter()
     let searchbar = UISearchBar()
-    //var data = [Results]()
-    //weak var photosOutputScreenDelegate: PhotosOutputScreenDelegate?
     
     var mainCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -30,11 +27,8 @@ class PhotosScreenViewController: UIViewController, UISearchBarDelegate {
         return collectionView
     }()
     
-    //var presenter: MainViewPresenterProtocol?
-    
     init(photosService: PhotosSevice) {
         self.photosService = photosService
-        //self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -53,9 +47,6 @@ class PhotosScreenViewController: UIViewController, UISearchBarDelegate {
         
         setupConstraints()
         
-        //self.photosOutputScreenDelegate = mainPresenter
-        //self.photosOutputScreenDelegate?.getData()
-        
         self.searchbar.delegate = self
         
         self.mainCollectionView.delegate = self
@@ -68,14 +59,7 @@ class PhotosScreenViewController: UIViewController, UISearchBarDelegate {
                 self.mainCollectionView.reloadData()
             }
         }
-        
-        //presenter?.showPhotos()
     }
-    
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        mainCollectionView.frame = view.bounds
-//    }
     
     func setupConstraints() {
         
@@ -137,19 +121,4 @@ extension PhotosScreenViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-//extension PhotosScreenViewController: PhotosScreenProtocol {
-//    func setup() {
-//        
-//    }
-//    
-//    func setupData(data: [Results]) {
-//        self.data = data
-//    }
-//    
-//    func displayData(i: Int) {
-//          
-//    }
-//    
-//    
-//}
 
