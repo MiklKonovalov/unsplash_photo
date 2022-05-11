@@ -9,7 +9,7 @@ import UIKit
 
 class PhotosScreenViewController: UIViewController, UISearchBarDelegate {
     
-    let photosService: PhotosSevice
+    var photosService: PhotoServiceProviding
     let searchbar = UISearchBar()
     
     var mainCollectionView: UICollectionView = {
@@ -27,7 +27,7 @@ class PhotosScreenViewController: UIViewController, UISearchBarDelegate {
         return collectionView
     }()
     
-    init(photosService: PhotosSevice) {
+    init(photosService: PhotoServiceProviding) {
         self.photosService = photosService
         super.init(nibName: nil, bundle: nil)
     }

@@ -10,7 +10,7 @@ import Kingfisher
 
 class DetailsScreenViewController: UIViewController {
     
-    let photosService: PhotosSevice
+    var photosService: PhotoServiceProviding
     
     var index: Int
     
@@ -58,7 +58,7 @@ class DetailsScreenViewController: UIViewController {
         return label
         }()
     
-    init(photosService: PhotosSevice, index: Int) {
+    init(photosService: PhotoServiceProviding, index: Int) {
         self.photosService = photosService
         self.index = index
         super.init(nibName: nil, bundle: nil)
