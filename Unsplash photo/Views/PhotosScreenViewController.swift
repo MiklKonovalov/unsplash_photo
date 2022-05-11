@@ -9,6 +9,7 @@ import UIKit
 
 protocol PhotosScreenViewControllerProtocol: AnyObject {
     func configure(with: PhotosSevice)
+    func reload()
 }
 
 class PhotosScreenViewController: UIViewController, UISearchBarDelegate {
@@ -63,6 +64,8 @@ class PhotosScreenViewController: UIViewController, UISearchBarDelegate {
         
         self.mainCollectionView.delegate = self
         self.mainCollectionView.dataSource = self
+        
+        presenter.reload()
         
         photosService.serviceDidChange = {
             DispatchQueue.main.async {
@@ -141,6 +144,12 @@ extension PhotosScreenViewController: UICollectionViewDelegateFlowLayout {
 extension PhotosScreenViewController: PhotosScreenViewControllerProtocol {
     func configure(with service: PhotosSevice) {
         
+    }
+    
+    func reload() {
+        DispatchQueue.main.async {
+            self.mainCollectionView.reloadData()
+        }
     }
     
 }

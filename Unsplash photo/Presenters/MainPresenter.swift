@@ -23,7 +23,11 @@ extension MainPresenter: MainPresenterProtocol {
     func viewDidLoad() {
         photosService?.getPhotos(query: "Box")
     }
+    
     func reload() {
-        photosService?.serviceDidChange
+        photosService?.serviceDidChange = {
+            self.photosScreenViewController?.reload()
+        }
     }
+    
 }
