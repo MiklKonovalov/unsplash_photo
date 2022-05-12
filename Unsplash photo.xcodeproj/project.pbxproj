@@ -18,9 +18,7 @@
 		C66765122825659000CA6E0F /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66765112825659000CA6E0F /* MainPresenter.swift */; };
 		C6676514282578A900CA6E0F /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6676513282578A900CA6E0F /* ImageCollectionViewCell.swift */; };
 		C66765182827E5AB00CA6E0F /* DetailsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66765172827E5AB00CA6E0F /* DetailsScreenViewController.swift */; };
-		C6676523282BF8E600CA6E0F /* Unsplash_photoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6676522282BF8E600CA6E0F /* Unsplash_photoTests.swift */; };
-		C667652B282BFAA300CA6E0F /* PhotoServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C667652A282BFAA200CA6E0F /* PhotoServiceMock.swift */; };
-		C667652E282BFC3900CA6E0F /* PhotosScreenViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C667652D282BFC3900CA6E0F /* PhotosScreenViewControllerTests.swift */; };
+		C667651B282BD39300CA6E0F /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C667651A282BD39300CA6E0F /* Assembly.swift */; };
 		C97B5B14C0E86F4B14CEE92F /* Pods_Unsplash_photo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72550FC05ECDBEA0905D5CCA /* Pods_Unsplash_photo.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,11 +48,7 @@
 		C66765112825659000CA6E0F /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		C6676513282578A900CA6E0F /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		C66765172827E5AB00CA6E0F /* DetailsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenViewController.swift; sourceTree = "<group>"; };
-		C6676520282BF8E500CA6E0F /* Unsplash photoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unsplash photoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C6676522282BF8E600CA6E0F /* Unsplash_photoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unsplash_photoTests.swift; sourceTree = "<group>"; };
-		C6676524282BF8E600CA6E0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C667652A282BFAA200CA6E0F /* PhotoServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoServiceMock.swift; sourceTree = "<group>"; };
-		C667652D282BFC3900CA6E0F /* PhotosScreenViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosScreenViewControllerTests.swift; sourceTree = "<group>"; };
+		C667651A282BD39300CA6E0F /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +104,7 @@
 			children = (
 				C66764F228254EC800CA6E0F /* AppDelegate.swift */,
 				C66764F428254EC800CA6E0F /* SceneDelegate.swift */,
+				C6676519282BD37100CA6E0F /* Assembly */,
 				C66765082825523B00CA6E0F /* Presenters */,
 				C66765072825522E00CA6E0F /* Views */,
 				C66765062825522300CA6E0F /* Models */,
@@ -147,15 +142,12 @@
 			path = Presenters;
 			sourceTree = "<group>";
 		};
-		C6676521282BF8E500CA6E0F /* Unsplash photoTests */ = {
+		C6676519282BD37100CA6E0F /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
-				C6676522282BF8E600CA6E0F /* Unsplash_photoTests.swift */,
-				C667652A282BFAA200CA6E0F /* PhotoServiceMock.swift */,
-				C6676524282BF8E600CA6E0F /* Info.plist */,
-				C667652D282BFC3900CA6E0F /* PhotosScreenViewControllerTests.swift */,
+				C667651A282BD39300CA6E0F /* Assembly.swift */,
 			);
-			path = "Unsplash photoTests";
+			path = Assembly;
 			sourceTree = "<group>";
 		};
 		E19AFE3A40D0B446A52D46C0 /* Pods */ = {
@@ -320,6 +312,7 @@
 				C66764F728254EC800CA6E0F /* PhotosScreenViewController.swift in Sources */,
 				C66765122825659000CA6E0F /* MainPresenter.swift in Sources */,
 				C6676514282578A900CA6E0F /* ImageCollectionViewCell.swift in Sources */,
+				C667651B282BD39300CA6E0F /* Assembly.swift in Sources */,
 				C667650D2825537500CA6E0F /* PhotosService.swift in Sources */,
 				C66765182827E5AB00CA6E0F /* DetailsScreenViewController.swift in Sources */,
 				C66764F328254EC800CA6E0F /* AppDelegate.swift in Sources */,
