@@ -8,7 +8,13 @@
 import Foundation
 import UIKit
 
-class PhotosSevice {
+protocol PhotoServiceProviding {
+    func getPhotos(query: String)
+    var serviceDidChange: (() -> Void)? { get set }
+    var results: [Results] { get set }
+}
+
+final class PhotosSevice: PhotoServiceProviding {
     
     var results: [Results] = []
     

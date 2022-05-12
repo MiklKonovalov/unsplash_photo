@@ -16,8 +16,6 @@ class PhotosScreenViewController: UIViewController, UISearchBarDelegate {
     
     let searchbar = UISearchBar()
     let presenter: MainPresenterProtocol
-    //var data = [Results]()
-    //weak var photosOutputScreenDelegate: PhotosOutputScreenDelegate?
     
     var mainCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -33,8 +31,6 @@ class PhotosScreenViewController: UIViewController, UISearchBarDelegate {
         collectionView.isPagingEnabled = true
         return collectionView
     }()
-    
-    //var presenter: MainViewPresenterProtocol?
     
     init(presenter: MainPresenterProtocol) {
         self.presenter = presenter

@@ -22,6 +22,16 @@
 		C97B5B14C0E86F4B14CEE92F /* Pods_Unsplash_photo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72550FC05ECDBEA0905D5CCA /* Pods_Unsplash_photo.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C6676525282BF8E600CA6E0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C66764E728254EC800CA6E0F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C66764EE28254EC800CA6E0F;
+			remoteInfo = "Unsplash photo";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		480B13584F3FE17A63C42566 /* Pods-Unsplash photo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unsplash photo.release.xcconfig"; path = "Target Support Files/Pods-Unsplash photo/Pods-Unsplash photo.release.xcconfig"; sourceTree = "<group>"; };
 		5176CAE3A3FAC61552283C6B /* Pods-Unsplash photo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unsplash photo.debug.xcconfig"; path = "Target Support Files/Pods-Unsplash photo/Pods-Unsplash photo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -51,6 +61,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C667651D282BF8E500CA6E0F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -66,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				C66764F128254EC800CA6E0F /* Unsplash photo */,
+				C6676521282BF8E500CA6E0F /* Unsplash photoTests */,
 				C66764F028254EC800CA6E0F /* Products */,
 				E19AFE3A40D0B446A52D46C0 /* Pods */,
 				985DC8EF0F70C7B37A02418F /* Frameworks */,
@@ -76,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				C66764EF28254EC800CA6E0F /* Unsplash photo.app */,
+				C6676520282BF8E500CA6E0F /* Unsplash photoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -165,6 +184,24 @@
 			productReference = C66764EF28254EC800CA6E0F /* Unsplash photo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C667651F282BF8E500CA6E0F /* Unsplash photoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6676529282BF8E600CA6E0F /* Build configuration list for PBXNativeTarget "Unsplash photoTests" */;
+			buildPhases = (
+				C667651C282BF8E500CA6E0F /* Sources */,
+				C667651D282BF8E500CA6E0F /* Frameworks */,
+				C667651E282BF8E500CA6E0F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C6676526282BF8E600CA6E0F /* PBXTargetDependency */,
+			);
+			name = "Unsplash photoTests";
+			productName = "Unsplash photoTests";
+			productReference = C6676520282BF8E500CA6E0F /* Unsplash photoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -176,6 +213,10 @@
 				TargetAttributes = {
 					C66764EE28254EC800CA6E0F = {
 						CreatedOnToolsVersion = 12.5;
+					};
+					C667651F282BF8E500CA6E0F = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = C66764EE28254EC800CA6E0F;
 					};
 				};
 			};
@@ -196,6 +237,7 @@
 			projectRoot = "";
 			targets = (
 				C66764EE28254EC800CA6E0F /* Unsplash photo */,
+				C667651F282BF8E500CA6E0F /* Unsplash photoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -207,6 +249,13 @@
 			files = (
 				C66764FF28254ECE00CA6E0F /* LaunchScreen.storyboard in Resources */,
 				C66764FC28254ECE00CA6E0F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C667651E282BF8E500CA6E0F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,7 +320,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C667651C282BF8E500CA6E0F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C667652B282BFAA300CA6E0F /* PhotoServiceMock.swift in Sources */,
+				C6676523282BF8E600CA6E0F /* Unsplash_photoTests.swift in Sources */,
+				C667652E282BFC3900CA6E0F /* PhotosScreenViewControllerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C6676526282BF8E600CA6E0F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C66764EE28254EC800CA6E0F /* Unsplash photo */;
+			targetProxy = C6676525282BF8E600CA6E0F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C66764FD28254ECE00CA6E0F /* LaunchScreen.storyboard */ = {
@@ -441,6 +508,46 @@
 			};
 			name = Release;
 		};
+		C6676527282BF8E600CA6E0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 34VCU6GX65;
+				INFOPLIST_FILE = "Unsplash photoTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.miklKonovalov.Unsplash-photoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Unsplash photo.app/Unsplash photo";
+			};
+			name = Debug;
+		};
+		C6676528282BF8E600CA6E0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 34VCU6GX65;
+				INFOPLIST_FILE = "Unsplash photoTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.miklKonovalov.Unsplash-photoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Unsplash photo.app/Unsplash photo";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -458,6 +565,15 @@
 			buildConfigurations = (
 				C667650428254ECE00CA6E0F /* Debug */,
 				C667650528254ECE00CA6E0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C6676529282BF8E600CA6E0F /* Build configuration list for PBXNativeTarget "Unsplash photoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6676527282BF8E600CA6E0F /* Debug */,
+				C6676528282BF8E600CA6E0F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
