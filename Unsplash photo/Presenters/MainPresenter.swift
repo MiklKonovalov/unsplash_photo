@@ -5,29 +5,49 @@
 //  Created by Misha on 06.05.2022.
 //
 
-import Foundation
 import UIKit
 
 protocol MainPresenterProtocol {
     func viewDidLoad()
-    func reload()
+    func viewDidSearch(text: String)
+    func resultCount() -> Int
+    func results() -> [Results]?
+    func openNewScreen(row: Int)
 }
 
 class MainPresenter {
-    var photosService: PhotosSevice?
+    var photosService = PhotosSevice()
     weak var photosScreenViewController: PhotosScreenViewControllerProtocol?
-
 }
 
 extension MainPresenter: MainPresenterProtocol {
+
     func viewDidLoad() {
-        photosService?.getPhotos(query: "Box")
-    }
-    
-    func reload() {
-        photosService?.serviceDidChange = {
+        photosService.getPhotos(query: "Box")
+        photosService.serviceDidChange = {
             self.photosScreenViewController?.reload()
         }
+    }
+    
+    func viewDidSearch(text: String) {
+        photosService.results = []
+        photosScreenViewController?.reload()
+        photosService.getPhotos(query: text)
+    }
+    
+    func resultCount() -> Int {
+        let resultCount = photosService.results.count
+        return resultCount
+    }
+    
+    func results() -> [Results]? {
+        let result = photosService.results
+        return result
+    }
+    
+    func openNewScreen(row: Int) {
+        let detailsScreenViewController = DetailsScreenViewController(photosService: photosService, index: row)
+        photosScreenViewController?.present(view: detailsScreenViewController)
     }
     
 }

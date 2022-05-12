@@ -8,13 +8,12 @@
 import UIKit
 
 protocol PhotosScreenViewControllerProtocol: AnyObject {
-    func configure(with: PhotosSevice)
     func reload()
+    func present(view: UIViewController)
 }
 
 class PhotosScreenViewController: UIViewController, UISearchBarDelegate {
     
-    let photosService: PhotosSevice
     let searchbar = UISearchBar()
     let presenter: MainPresenterProtocol
     //var data = [Results]()
@@ -37,8 +36,7 @@ class PhotosScreenViewController: UIViewController, UISearchBarDelegate {
     
     //var presenter: MainViewPresenterProtocol?
     
-    init(photosService: PhotosSevice, presenter: MainPresenterProtocol) {
-        self.photosService = photosService
+    init(presenter: MainPresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
@@ -49,8 +47,6 @@ class PhotosScreenViewController: UIViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        presenter.viewDidLoad()
         
         view.backgroundColor = .white
         
@@ -65,21 +61,8 @@ class PhotosScreenViewController: UIViewController, UISearchBarDelegate {
         self.mainCollectionView.delegate = self
         self.mainCollectionView.dataSource = self
         
-        presenter.reload()
-        
-        photosService.serviceDidChange = {
-            DispatchQueue.main.async {
-                self.mainCollectionView.reloadData()
-            }
-        }
-        
-        //presenter?.showPhotos()
+        presenter.viewDidLoad()
     }
-    
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        mainCollectionView.frame = view.bounds
-//    }
     
     func setupConstraints() {
         
@@ -92,15 +75,12 @@ class PhotosScreenViewController: UIViewController, UISearchBarDelegate {
         mainCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         mainCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         mainCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        
-        
+
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let text = searchbar.text {
-            photosService.results = []
-            mainCollectionView.reloadData()
-            photosService.getPhotos(query: text)
+            presenter.viewDidSearch(text: text)
         }
     }
 
@@ -108,7 +88,7 @@ class PhotosScreenViewController: UIViewController, UISearchBarDelegate {
 
 extension PhotosScreenViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photosService.results.count
+        return presenter.resultCount()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -116,8 +96,8 @@ extension PhotosScreenViewController: UICollectionViewDataSource {
             withReuseIdentifier: "cell",
             for: indexPath
         ) as? ImageCollectionViewCell else { return UICollectionViewCell() }
-        let imageURLSring = photosService.results[indexPath.row].urls.small
-        cell.configure(with: imageURLSring)
+        let imageURLSring = presenter.results()?[indexPath.row].urls.small
+        cell.configure(with: imageURLSring ?? "")
         cell.backgroundColor = .white
         return cell
     }
@@ -127,9 +107,7 @@ extension PhotosScreenViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let alert = UIAlertController(title: "Переход к информации о фото", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ок", style: .default) { _ in
-            let detailsScreenViewController = DetailsScreenViewController(photosService: self.photosService, index: indexPath.row)
-            let navigationController = UINavigationController(rootViewController: detailsScreenViewController)
-            self.present(navigationController, animated: true, completion: nil)
+            self.presenter.openNewScreen(row: indexPath.row)
         })
         self.present(alert, animated: true, completion: nil)
     }
@@ -142,14 +120,15 @@ extension PhotosScreenViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension PhotosScreenViewController: PhotosScreenViewControllerProtocol {
-    func configure(with service: PhotosSevice) {
-        
-    }
     
     func reload() {
         DispatchQueue.main.async {
             self.mainCollectionView.reloadData()
         }
+    }
+    
+    func present(view: UIViewController) {
+        self.present(view, animated: true, completion: nil)
     }
     
 }

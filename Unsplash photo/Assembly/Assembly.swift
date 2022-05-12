@@ -9,9 +9,9 @@ import UIKit
 
 class Assembly {
     func assemble() -> UIViewController {
-        let photosService = PhotosSevice()
         let presenter = MainPresenter()
-        let photosScreenViewController = PhotosScreenViewController(photosService: photosService, presenter: presenter)
+        let photosScreenViewController = PhotosScreenViewController(presenter: presenter)
+        presenter.photosScreenViewController = photosScreenViewController
         return photosScreenViewController
     }
 }
