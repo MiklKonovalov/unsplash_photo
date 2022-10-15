@@ -57,7 +57,9 @@ class PhotosScreenViewController: UIViewController, UISearchBarDelegate {
         self.mainCollectionView.delegate = self
         self.mainCollectionView.dataSource = self
         
-        presenter.viewDidLoad()
+
+        self.presenter.viewDidLoad()        
+        
     }
     
     func setupConstraints() {

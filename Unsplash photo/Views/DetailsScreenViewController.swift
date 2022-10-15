@@ -5,14 +5,34 @@
 //  Created by Misha on 08.05.2022.
 //
 
+import Foundation
 import UIKit
 import Kingfisher
+import RealmSwift
+
+class IdList: Object {
+    @objc dynamic var id = ""
+    @objc dynamic var isLike = false
+}
+
+protocol DetailsScreenViewControllerProtocol {
+    
+}
 
 class DetailsScreenViewController: UIViewController {
     
+    let realm = try! Realm()
+    let photoId = IdList()
+    
     var photosService: PhotoServiceProviding
     
+    var favouritesPresenter: FavouritesPresenterProtocol
+    
     var index: Int
+    
+    var count = 0
+    
+    var id: String?
     
     let photoImageView: UIImageView = {
         let image = UIImageView()
@@ -58,9 +78,22 @@ class DetailsScreenViewController: UIViewController {
         return label
         }()
     
-    init(photosService: PhotoServiceProviding, index: Int) {
+    var likeButton: UIButton = {
+        let button = UIButton()
+        button.layer.cornerRadius = 10
+        button.clipsToBounds = true
+        button.layer.backgroundColor = UIColor.black.cgColor
+        button.addTarget(self, action: #selector(likeButtonPressed), for: .touchUpInside)
+        button.setTitleColor(.white, for: .normal)
+        button.setTitle("В избранное", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    init(photosService: PhotoServiceProviding, index: Int, favouritesPresenter: FavouritesPresenterProtocol) {
         self.photosService = photosService
         self.index = index
+        self.favouritesPresenter = favouritesPresenter
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -70,6 +103,13 @@ class DetailsScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if photoId.isLike == true {
+            likeButton.setTitle("В избранном", for: .normal)
+        } else if photoId.isLike == false {
+            likeButton.setTitle("В избранное", for: .normal)
+        }
+        
         view.backgroundColor = .white
         
         view.addSubview(photoImageView)
@@ -77,6 +117,7 @@ class DetailsScreenViewController: UIViewController {
         view.addSubview(dateLabel)
         view.addSubview(locationLabel)
         view.addSubview(likesLabel)
+        view.addSubview(likeButton)
         
         setupConstraints()
         
@@ -99,6 +140,15 @@ class DetailsScreenViewController: UIViewController {
         locationLabel.text = "Location: \(photosService.results[index].user.location ?? "Unknown location")"
         
         likesLabel.text = String("Likes: \(photosService.results[index].likes)")
+        
+        id = photosService.results[index].id
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.favouritesPresenter.viewDidLoad()
+    
     }
     
     func setupConstraints() {
@@ -123,6 +173,36 @@ class DetailsScreenViewController: UIViewController {
         likesLabel.topAnchor.constraint(equalTo: locationLabel.bottomAnchor, constant: 20).isActive = true
         likesLabel.leadingAnchor.constraint(equalTo: locationLabel.leadingAnchor).isActive = true
         likesLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        
+        likeButton.topAnchor.constraint(equalTo: likesLabel.bottomAnchor, constant: 10).isActive = true
+        likeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        likeButton.widthAnchor.constraint(equalToConstant: view.frame.width / 2).isActive = true
+        likeButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
+    
+    @objc func likeButtonPressed() {
+        if count == 0 {
+            count += 1
+            likeButton.setTitle("В избранном", for: .normal)
+            guard let id = id else { return }
+            
+            photoId.id = id
+            photoId.isLike = true
+            
+            try! realm.write {
+                realm.add(photoId)
+            }
+            
+            favouritesPresenter.viewDidLoad()
+        } else if count == 1 {
+            count -= 1
+            likeButton.setTitle("В избранное", for: .normal)
+            photoId.isLike = false
+        }
+    }
+}
+
+extension DetailsScreenViewController: DetailsScreenViewControllerProtocol {
+    
 }
 

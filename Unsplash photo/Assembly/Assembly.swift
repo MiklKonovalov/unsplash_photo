@@ -10,6 +10,7 @@ import UIKit
 class Assembly {
     func assemble() -> UIViewController {
         let presenter = MainPresenter()
+        let tabBarController = TabBarController()
         let photosScreenViewController = PhotosScreenViewController(presenter: presenter)
         presenter.photosScreenViewController = photosScreenViewController
         return photosScreenViewController

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C65E078928F9EBF10002F4A7 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65E078828F9EBF10002F4A7 /* FavoritesTableViewCell.swift */; };
+		C65E078C28FAEC5D0002F4A7 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = C65E078B28FAEC5D0002F4A7 /* Realm */; };
+		C65E078E28FAEC5D0002F4A7 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C65E078D28FAEC5D0002F4A7 /* RealmSwift */; };
+		C65E079028FB053E0002F4A7 /* FavouritesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65E078F28FB053E0002F4A7 /* FavouritesData.swift */; };
 		C66764F328254EC800CA6E0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66764F228254EC800CA6E0F /* AppDelegate.swift */; };
 		C66764F528254EC800CA6E0F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66764F428254EC800CA6E0F /* SceneDelegate.swift */; };
 		C66764F728254EC800CA6E0F /* PhotosScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66764F628254EC800CA6E0F /* PhotosScreenViewController.swift */; };
@@ -19,6 +23,10 @@
 		C6676514282578A900CA6E0F /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6676513282578A900CA6E0F /* ImageCollectionViewCell.swift */; };
 		C66765182827E5AB00CA6E0F /* DetailsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66765172827E5AB00CA6E0F /* DetailsScreenViewController.swift */; };
 		C667651B282BD39300CA6E0F /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C667651A282BD39300CA6E0F /* Assembly.swift */; };
+		C6F11B2728F8503D00913750 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F11B2628F8503D00913750 /* TabBarController.swift */; };
+		C6F11B2928F8522000913750 /* FavouritesPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F11B2828F8522000913750 /* FavouritesPhotosViewController.swift */; };
+		C6F11B2B28F892D800913750 /* FavouritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F11B2A28F892D700913750 /* FavouritesPresenter.swift */; };
+		C6F11B2D28F89C9D00913750 /* FavouritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F11B2C28F89C9D00913750 /* FavouritesService.swift */; };
 		C97B5B14C0E86F4B14CEE92F /* Pods_Unsplash_photo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72550FC05ECDBEA0905D5CCA /* Pods_Unsplash_photo.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +44,8 @@
 		480B13584F3FE17A63C42566 /* Pods-Unsplash photo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unsplash photo.release.xcconfig"; path = "Target Support Files/Pods-Unsplash photo/Pods-Unsplash photo.release.xcconfig"; sourceTree = "<group>"; };
 		5176CAE3A3FAC61552283C6B /* Pods-Unsplash photo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unsplash photo.debug.xcconfig"; path = "Target Support Files/Pods-Unsplash photo/Pods-Unsplash photo.debug.xcconfig"; sourceTree = "<group>"; };
 		72550FC05ECDBEA0905D5CCA /* Pods_Unsplash_photo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unsplash_photo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C65E078828F9EBF10002F4A7 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
+		C65E078F28FB053E0002F4A7 /* FavouritesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesData.swift; sourceTree = "<group>"; };
 		C66764EF28254EC800CA6E0F /* Unsplash photo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unsplash photo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C66764F228254EC800CA6E0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C66764F428254EC800CA6E0F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +59,10 @@
 		C6676513282578A900CA6E0F /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		C66765172827E5AB00CA6E0F /* DetailsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenViewController.swift; sourceTree = "<group>"; };
 		C667651A282BD39300CA6E0F /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
+		C6F11B2628F8503D00913750 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		C6F11B2828F8522000913750 /* FavouritesPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesPhotosViewController.swift; sourceTree = "<group>"; };
+		C6F11B2A28F892D700913750 /* FavouritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesPresenter.swift; sourceTree = "<group>"; };
+		C6F11B2C28F89C9D00913750 /* FavouritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C65E078E28FAEC5D0002F4A7 /* RealmSwift in Frameworks */,
+				C65E078C28FAEC5D0002F4A7 /* Realm in Frameworks */,
 				C6676510282556C800CA6E0F /* UnsplashPhotoPicker in Frameworks */,
 				C97B5B14C0E86F4B14CEE92F /* Pods_Unsplash_photo.framework in Frameworks */,
 			);
@@ -83,7 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				C66764F128254EC800CA6E0F /* Unsplash photo */,
-				C6676521282BF8E500CA6E0F /* Unsplash photoTests */,
 				C66764F028254EC800CA6E0F /* Products */,
 				E19AFE3A40D0B446A52D46C0 /* Pods */,
 				985DC8EF0F70C7B37A02418F /* Frameworks */,
@@ -94,7 +109,6 @@
 			isa = PBXGroup;
 			children = (
 				C66764EF28254EC800CA6E0F /* Unsplash photo.app */,
-				C6676520282BF8E500CA6E0F /* Unsplash photoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -120,6 +134,8 @@
 			children = (
 				C667650A2825528A00CA6E0F /* PhotosData.swift */,
 				C667650C2825537500CA6E0F /* PhotosService.swift */,
+				C65E078F28FB053E0002F4A7 /* FavouritesData.swift */,
+				C6F11B2C28F89C9D00913750 /* FavouritesService.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -127,9 +143,12 @@
 		C66765072825522E00CA6E0F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C6F11B2628F8503D00913750 /* TabBarController.swift */,
 				C66764F628254EC800CA6E0F /* PhotosScreenViewController.swift */,
 				C6676513282578A900CA6E0F /* ImageCollectionViewCell.swift */,
+				C65E078828F9EBF10002F4A7 /* FavoritesTableViewCell.swift */,
 				C66765172827E5AB00CA6E0F /* DetailsScreenViewController.swift */,
+				C6F11B2828F8522000913750 /* FavouritesPhotosViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -138,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				C66765112825659000CA6E0F /* MainPresenter.swift */,
+				C6F11B2A28F892D700913750 /* FavouritesPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -179,6 +199,8 @@
 			name = "Unsplash photo";
 			packageProductDependencies = (
 				C667650F282556C800CA6E0F /* UnsplashPhotoPicker */,
+				C65E078B28FAEC5D0002F4A7 /* Realm */,
+				C65E078D28FAEC5D0002F4A7 /* RealmSwift */,
 			);
 			productName = "Unsplash photo";
 			productReference = C66764EF28254EC800CA6E0F /* Unsplash photo.app */;
@@ -199,7 +221,6 @@
 			);
 			name = "Unsplash photoTests";
 			productName = "Unsplash photoTests";
-			productReference = C6676520282BF8E500CA6E0F /* Unsplash photoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -231,6 +252,7 @@
 			mainGroup = C66764E628254EC800CA6E0F;
 			packageReferences = (
 				C667650E282556C800CA6E0F /* XCRemoteSwiftPackageReference "unsplash-photopicker-ios" */,
+				C65E078A28FAEC5C0002F4A7 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = C66764F028254EC800CA6E0F /* Products */;
 			projectDirPath = "";
@@ -309,14 +331,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				C667650B2825528A00CA6E0F /* PhotosData.swift in Sources */,
+				C65E079028FB053E0002F4A7 /* FavouritesData.swift in Sources */,
 				C66764F728254EC800CA6E0F /* PhotosScreenViewController.swift in Sources */,
+				C6F11B2728F8503D00913750 /* TabBarController.swift in Sources */,
 				C66765122825659000CA6E0F /* MainPresenter.swift in Sources */,
 				C6676514282578A900CA6E0F /* ImageCollectionViewCell.swift in Sources */,
 				C667651B282BD39300CA6E0F /* Assembly.swift in Sources */,
 				C667650D2825537500CA6E0F /* PhotosService.swift in Sources */,
+				C6F11B2928F8522000913750 /* FavouritesPhotosViewController.swift in Sources */,
+				C6F11B2B28F892D800913750 /* FavouritesPresenter.swift in Sources */,
 				C66765182827E5AB00CA6E0F /* DetailsScreenViewController.swift in Sources */,
+				C6F11B2D28F89C9D00913750 /* FavouritesService.swift in Sources */,
 				C66764F328254EC800CA6E0F /* AppDelegate.swift in Sources */,
 				C66764F528254EC800CA6E0F /* SceneDelegate.swift in Sources */,
+				C65E078928F9EBF10002F4A7 /* FavoritesTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,9 +352,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C667652B282BFAA300CA6E0F /* PhotoServiceMock.swift in Sources */,
-				C6676523282BF8E600CA6E0F /* Unsplash_photoTests.swift in Sources */,
-				C667652E282BFC3900CA6E0F /* PhotosScreenViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,6 +606,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C65E078A28FAEC5C0002F4A7 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		C667650E282556C800CA6E0F /* XCRemoteSwiftPackageReference "unsplash-photopicker-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/unsplash/unsplash-photopicker-ios.git";
@@ -592,6 +625,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C65E078B28FAEC5D0002F4A7 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C65E078A28FAEC5C0002F4A7 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		C65E078D28FAEC5D0002F4A7 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C65E078A28FAEC5C0002F4A7 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		C667650F282556C800CA6E0F /* UnsplashPhotoPicker */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C667650E282556C800CA6E0F /* XCRemoteSwiftPackageReference "unsplash-photopicker-ios" */;

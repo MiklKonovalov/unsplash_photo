@@ -13,11 +13,13 @@ protocol MainPresenterProtocol {
     func resultCount() -> Int
     func results() -> [Results]?
     func openNewScreen(row: Int)
+    
 }
 
 class MainPresenter {
     var photosService = PhotosSevice()
     weak var photosScreenViewController: PhotosScreenViewControllerProtocol?
+    let favouritesPresenter = FavouritesPresenter()
 }
 
 extension MainPresenter: MainPresenterProtocol {
@@ -46,7 +48,7 @@ extension MainPresenter: MainPresenterProtocol {
     }
     
     func openNewScreen(row: Int) {
-        let detailsScreenViewController = DetailsScreenViewController(photosService: photosService, index: row)
+        let detailsScreenViewController = DetailsScreenViewController(photosService: photosService, index: row, favouritesPresenter: FavouritesPresenter())
         photosScreenViewController?.present(view: detailsScreenViewController)
     }
     
