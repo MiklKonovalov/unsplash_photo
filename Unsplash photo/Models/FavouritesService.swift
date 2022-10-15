@@ -18,12 +18,16 @@ class FavouritesService {
     
         let task = URLSession.shared.dataTask(with: url) { [weak self] data, responce, error in
             guard let data = data, error == nil else { return }
+            print(error)
+            
+            guard let responce = responce as? HTTPURLResponse else { return }
+            print("statusCode: \(responce.statusCode)")
         
             do {
                 let jsonResult = try JSONDecoder().decode(PhotoResults.self, from: data)
                 DispatchQueue.main.async {
                     self?.results.append(jsonResult.urls.small)
-                    print(jsonResult)
+                    print("jsonResults: \(jsonResult.urls.small)")
                     self?.serviceDidChange?()
                 }
             }

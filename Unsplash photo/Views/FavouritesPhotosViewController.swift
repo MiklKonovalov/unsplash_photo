@@ -36,7 +36,7 @@ class FavouritesPhotosViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.favouritesPresenter.viewDidLoad()
+        
     }
     
     override func viewDidLoad() {
@@ -49,6 +49,8 @@ class FavouritesPhotosViewController: UIViewController {
         setupTableView()
         tableView.delegate = self
         tableView.dataSource = self
+        
+        self.favouritesPresenter.viewDidLoad()
     }
     
     func setupTableView() {
@@ -71,9 +73,13 @@ extension FavouritesPhotosViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? FavoritesTableViewCell else { return UITableViewCell() }
-        let imageURLSring = favouritesPresenter.results()?[indexPath.row]
-        cell.configure(with: imageURLSring ?? "")
-        cell.backgroundColor = .white
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            let imageURLSring = self.favouritesPresenter.results()?[indexPath.row]
+            cell.configure(with: imageURLSring ?? "")
+            cell.backgroundColor = .white
+        }
+        
         return cell
     }
     

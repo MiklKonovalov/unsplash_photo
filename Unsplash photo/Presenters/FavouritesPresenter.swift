@@ -6,6 +6,7 @@
 //
 
 import RealmSwift
+import UIKit
 
 protocol FavouritesPresenterProtocol {
     func viewDidLoad()
@@ -26,14 +27,14 @@ extension FavouritesPresenter: FavouritesPresenterProtocol {
     
     func viewDidLoad() {
         
-        let stored = realm.objects(IdList.self)
-        for index in stored.enumerated() {
-            favouritesService.getFavouritePhotos(query: index.element.id)
-            print(index)
-        }
-        
         favouritesService.serviceDidChange = {
             self.favouritesPhotosViewController?.reload()
+        }
+        
+        let stored = self.realm.objects(IdList.self)
+        for index in stored.enumerated() {
+            self.favouritesService.getFavouritePhotos(query: index.element.id)
+            print(index.element.id)
         }
     }
     
@@ -46,5 +47,6 @@ extension FavouritesPresenter: FavouritesPresenterProtocol {
         let result = favouritesService.results
         return result
     }
+    
     
 }
