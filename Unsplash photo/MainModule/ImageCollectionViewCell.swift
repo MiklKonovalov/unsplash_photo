@@ -2,7 +2,7 @@
 //  ImageCollectionViewCell.swift
 //  Unsplash photo
 //
-//  Created by Misha on 06.05.2022.
+//  Created by Misha on 13.10.2022.
 //
 
 import UIKit

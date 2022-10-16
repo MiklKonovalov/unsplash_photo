@@ -2,7 +2,7 @@
 //  DetailsScreenViewController.swift
 //  Unsplash photo
 //
-//  Created by Misha on 08.05.2022.
+//  Created by Misha on 13.10.2022.
 //
 
 import Foundation
