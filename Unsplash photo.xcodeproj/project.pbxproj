@@ -22,6 +22,7 @@
 		C66765122825659000CA6E0F /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66765112825659000CA6E0F /* MainPresenter.swift */; };
 		C6676514282578A900CA6E0F /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6676513282578A900CA6E0F /* ImageCollectionViewCell.swift */; };
 		C66765182827E5AB00CA6E0F /* DetailsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66765172827E5AB00CA6E0F /* DetailsScreenViewController.swift */; };
+		C688B02E28FC30E3006BE3C6 /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C688B02D28FC30E3006BE3C6 /* DetailsPresenter.swift */; };
 		C6F11B2728F8503D00913750 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F11B2628F8503D00913750 /* TabBarController.swift */; };
 		C6F11B2928F8522000913750 /* FavouritesPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F11B2828F8522000913750 /* FavouritesPhotosViewController.swift */; };
 		C6F11B2B28F892D800913750 /* FavouritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F11B2A28F892D700913750 /* FavouritesPresenter.swift */; };
@@ -57,6 +58,7 @@
 		C66765112825659000CA6E0F /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		C6676513282578A900CA6E0F /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		C66765172827E5AB00CA6E0F /* DetailsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenViewController.swift; sourceTree = "<group>"; };
+		C688B02D28FC30E3006BE3C6 /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
 		C6F11B2628F8503D00913750 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		C6F11B2828F8522000913750 /* FavouritesPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesPhotosViewController.swift; sourceTree = "<group>"; };
 		C6F11B2A28F892D700913750 /* FavouritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesPresenter.swift; sourceTree = "<group>"; };
@@ -118,7 +120,7 @@
 				C66764F428254EC800CA6E0F /* SceneDelegate.swift */,
 				C6F11B2628F8503D00913750 /* TabBarController.swift */,
 				C688B02B28FC2ED3006BE3C6 /* MainModule */,
-				C688B02C28FC2EF5006BE3C6 /* FavouritesModul */,
+				C688B02C28FC2EF5006BE3C6 /* FavouritesModule */,
 				C66765072825522E00CA6E0F /* DetailsModule */,
 				C66765062825522300CA6E0F /* Models */,
 				C66764FB28254ECE00CA6E0F /* Assets.xcassets */,
@@ -142,6 +144,7 @@
 		C66765072825522E00CA6E0F /* DetailsModule */ = {
 			isa = PBXGroup;
 			children = (
+				C688B02D28FC30E3006BE3C6 /* DetailsPresenter.swift */,
 				C66765172827E5AB00CA6E0F /* DetailsScreenViewController.swift */,
 			);
 			path = DetailsModule;
@@ -157,14 +160,14 @@
 			path = MainModule;
 			sourceTree = "<group>";
 		};
-		C688B02C28FC2EF5006BE3C6 /* FavouritesModul */ = {
+		C688B02C28FC2EF5006BE3C6 /* FavouritesModule */ = {
 			isa = PBXGroup;
 			children = (
 				C6F11B2A28F892D700913750 /* FavouritesPresenter.swift */,
 				C6F11B2828F8522000913750 /* FavouritesPhotosViewController.swift */,
 				C65E078828F9EBF10002F4A7 /* FavoritesTableViewCell.swift */,
 			);
-			path = FavouritesModul;
+			path = FavouritesModule;
 			sourceTree = "<group>";
 		};
 		E19AFE3A40D0B446A52D46C0 /* Pods */ = {
@@ -329,6 +332,7 @@
 			files = (
 				C667650B2825528A00CA6E0F /* PhotosData.swift in Sources */,
 				C65E079028FB053E0002F4A7 /* FavouritesData.swift in Sources */,
+				C688B02E28FC30E3006BE3C6 /* DetailsPresenter.swift in Sources */,
 				C66764F728254EC800CA6E0F /* PhotosScreenViewController.swift in Sources */,
 				C6F11B2728F8503D00913750 /* TabBarController.swift in Sources */,
 				C66765122825659000CA6E0F /* MainPresenter.swift in Sources */,

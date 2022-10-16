@@ -10,25 +10,22 @@ import UIKit
 import Kingfisher
 import RealmSwift
 
-class IdList: Object {
-    @objc dynamic var id = ""
-}
-
-protocol DetailsScreenViewControllerProtocol {
-    
+protocol DetailsScreenViewControllerProtocol: AnyObject {
+    func favourite()
+    func unfavourite()
 }
 
 class DetailsScreenViewController: UIViewController {
     
-    let realm = try! Realm()
+    //let realm = try! Realm()
     
-    var photosService: PhotoServiceProviding
+    //var favouritesPresenter: FavouritesPresenterProtocol
     
-    var favouritesPresenter: FavouritesPresenterProtocol
+    var detailsPresenter: DetailsPresenterProtocol
     
     var index: Int
     
-    var id: String?
+    //var id: String?
     
     let photoImageView: UIImageView = {
         let image = UIImageView()
@@ -86,15 +83,22 @@ class DetailsScreenViewController: UIViewController {
         return button
     }()
     
-    init(photosService: PhotoServiceProviding, index: Int, favouritesPresenter: FavouritesPresenterProtocol) {
-        self.photosService = photosService
+    init(index: Int,
+         detailsPresenter: DetailsPresenterProtocol) {
         self.index = index
-        self.favouritesPresenter = favouritesPresenter
+        self.detailsPresenter = detailsPresenter
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+            
+        
+        
     }
     
     override func viewDidLoad() {
@@ -111,40 +115,27 @@ class DetailsScreenViewController: UIViewController {
         
         setupConstraints()
         
-        let urlString = photosService.results[index].urls.small
+        detailsPresenter.viewDidLoad(with: index)
+        
+        let urlString = detailsPresenter.photoDidLoad(with: index)
         let url = URL(string: urlString)
         photoImageView.kf.setImage(with: url) { result in
             self.view.setNeedsLayout()
         }
         
-        authorLabel.text = "Author: \(photosService.results[index].user.username)"
+        authorLabel.text = "Author: \(detailsPresenter.authorDidLoad(with: index))"
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        let date = photosService.results[index].created_at
+        let date = detailsPresenter.dateDidLoad(with: index)
         guard let dateDate = dateFormatter.date(from: date) else { return }
         dateFormatter.dateFormat = "MM/dd/yyyy"
         let dateString = dateFormatter.string(from: dateDate)
         dateLabel.text = "Date: \(dateString)"
         
-        locationLabel.text = "Location: \(photosService.results[index].user.location ?? "Unknown location")"
+        locationLabel.text = detailsPresenter.locationDidLoad(with: index)
         
-        likesLabel.text = String("Likes: \(photosService.results[index].likes)")
-        
-        let id = photosService.results[index].id
-        self.id = id
-        
-        if realm.objects(IdList.self).filter("id == %@", id).isEmpty {
-            likeButton.setTitle("В избранное", for: .normal)
-        } else {
-            likeButton.setTitle("В избранном", for: .normal)
-        }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-    
+        likesLabel.text = String("Likes: \(detailsPresenter.downloadsDidLoad(with: index))")
     }
     
     func setupConstraints() {
@@ -177,28 +168,19 @@ class DetailsScreenViewController: UIViewController {
     }
     
     @objc func likeButtonPressed() {
-        guard let id = id else { return }
         
-        let isLiked = realm.objects(IdList.self).filter("id == %@", id)
-        if isLiked.isEmpty {
-            
-            let idList = IdList()
-            idList.id = id
-            
-            try! realm.write {
-                realm.add(idList)
-            }
-            likeButton.setTitle("В избранном", for: .normal)
-        } else {
-            try! realm.write {
-                realm.delete(isLiked)
-            }
-            likeButton.setTitle("В избранное", for: .normal)
-        }
+        detailsPresenter.makeFavourites()
     }
 }
 
 extension DetailsScreenViewController: DetailsScreenViewControllerProtocol {
     
+    func favourite() {
+        likeButton.setTitle("В избранном", for: .normal)
+    }
+    
+    func unfavourite() {
+        likeButton.setTitle("В избранное", for: .normal)
+    }
+    
 }
-

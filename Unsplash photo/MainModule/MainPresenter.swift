@@ -48,7 +48,14 @@ extension MainPresenter: MainPresenterProtocol {
     }
     
     func openNewScreen(row: Int) {
-        let detailsScreenViewController = DetailsScreenViewController(photosService: photosService, index: row, favouritesPresenter: FavouritesPresenter())
+        let detailsPresenter = DetailsPresenter(photosService: photosService)
+        
+        let detailsScreenViewController = DetailsScreenViewController(
+            index: row,
+            detailsPresenter: detailsPresenter)
+        
+        detailsPresenter.detailsScreenViewController = detailsScreenViewController
+        
         photosScreenViewController?.present(view: detailsScreenViewController)
     }
     
