@@ -17,15 +17,9 @@ protocol DetailsScreenViewControllerProtocol: AnyObject {
 
 class DetailsScreenViewController: UIViewController {
     
-    //let realm = try! Realm()
-    
-    //var favouritesPresenter: FavouritesPresenterProtocol
-    
     var detailsPresenter: DetailsPresenterProtocol
     
     var index: Int
-    
-    //var id: String?
     
     let photoImageView: UIImageView = {
         let image = UIImageView()
