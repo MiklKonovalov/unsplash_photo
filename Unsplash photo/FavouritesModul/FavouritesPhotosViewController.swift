@@ -10,7 +10,6 @@ import UIKit
 
 protocol FavouritesPhotosViewControllerProtocol: AnyObject {
     func reload()
-    func present(view: UIViewController)
 }
 
 class FavouritesPhotosViewController: UIViewController {
@@ -36,7 +35,7 @@ class FavouritesPhotosViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        
+        self.favouritesPresenter.viewWillAppear()
     }
     
     override func viewDidLoad() {
@@ -50,7 +49,6 @@ class FavouritesPhotosViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        self.favouritesPresenter.viewDidLoad()
     }
     
     func setupTableView() {
@@ -87,6 +85,9 @@ extension FavouritesPhotosViewController: UITableViewDataSource {
 
 extension FavouritesPhotosViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 300
+    }
 }
 
 extension FavouritesPhotosViewController: FavouritesPhotosViewControllerProtocol {
@@ -96,10 +97,5 @@ extension FavouritesPhotosViewController: FavouritesPhotosViewControllerProtocol
             self.tableView.reloadData()
         }
     }
-    
-    func present(view: UIViewController) {
-        
-    }
-    
     
 }

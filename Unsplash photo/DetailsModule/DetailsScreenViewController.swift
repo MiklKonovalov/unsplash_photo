@@ -12,7 +12,6 @@ import RealmSwift
 
 class IdList: Object {
     @objc dynamic var id = ""
-    @objc dynamic var isLike = false
 }
 
 protocol DetailsScreenViewControllerProtocol {
@@ -22,15 +21,12 @@ protocol DetailsScreenViewControllerProtocol {
 class DetailsScreenViewController: UIViewController {
     
     let realm = try! Realm()
-    let photoId = IdList()
     
     var photosService: PhotoServiceProviding
     
     var favouritesPresenter: FavouritesPresenterProtocol
     
     var index: Int
-    
-    var count = 0
     
     var id: String?
     
@@ -104,12 +100,6 @@ class DetailsScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if photoId.isLike == true {
-            likeButton.setTitle("В избранном", for: .normal)
-        } else if photoId.isLike == false {
-            likeButton.setTitle("В избранное", for: .normal)
-        }
-        
         view.backgroundColor = .white
         
         view.addSubview(photoImageView)
@@ -141,13 +131,19 @@ class DetailsScreenViewController: UIViewController {
         
         likesLabel.text = String("Likes: \(photosService.results[index].likes)")
         
-        id = photosService.results[index].id
+        let id = photosService.results[index].id
+        self.id = id
+        
+        if realm.objects(IdList.self).filter("id == %@", id).isEmpty {
+            likeButton.setTitle("В избранное", for: .normal)
+        } else {
+            likeButton.setTitle("В избранном", for: .normal)
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        self.favouritesPresenter.viewDidLoad()
     
     }
     
@@ -181,23 +177,23 @@ class DetailsScreenViewController: UIViewController {
     }
     
     @objc func likeButtonPressed() {
-        if count == 0 {
-            count += 1
-            likeButton.setTitle("В избранном", for: .normal)
-            guard let id = id else { return }
+        guard let id = id else { return }
+        
+        let isLiked = realm.objects(IdList.self).filter("id == %@", id)
+        if isLiked.isEmpty {
             
-            photoId.id = id
-            photoId.isLike = true
+            let idList = IdList()
+            idList.id = id
             
             try! realm.write {
-                realm.add(photoId)
+                realm.add(idList)
             }
-            
-            favouritesPresenter.viewDidLoad()
-        } else if count == 1 {
-            count -= 1
+            likeButton.setTitle("В избранном", for: .normal)
+        } else {
+            try! realm.write {
+                realm.delete(isLiked)
+            }
             likeButton.setTitle("В избранное", for: .normal)
-            photoId.isLike = false
         }
     }
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 class FavoritesTableViewCell: UITableViewCell {
     
@@ -35,18 +36,12 @@ class FavoritesTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        favouriteImageView.image = nil
+        favouriteImageView.kf.cancelDownloadTask()
     }
     
     func configure(with urlString: String) {
         guard let url = URL(string: urlString) else { return }
-        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
-            guard let data = data, error == nil else { return }
-            DispatchQueue.main.async {
-                let image = UIImage(data: data)
-                self?.favouriteImageView.image = image
-            }
-        }.resume()
+        favouriteImageView.kf.setImage(with: url)
     }
     
 }

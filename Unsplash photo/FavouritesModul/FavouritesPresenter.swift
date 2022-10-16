@@ -9,7 +9,7 @@ import RealmSwift
 import UIKit
 
 protocol FavouritesPresenterProtocol {
-    func viewDidLoad()
+    func viewWillAppear()
     func results() -> [String]?
     func resultCount() -> Int
 }
@@ -25,7 +25,9 @@ class FavouritesPresenter {
 
 extension FavouritesPresenter: FavouritesPresenterProtocol {
     
-    func viewDidLoad() {
+    func viewWillAppear() {
+        
+        favouritesService.results.removeAll()
         
         favouritesService.serviceDidChange = {
             self.favouritesPhotosViewController?.reload()
@@ -34,19 +36,16 @@ extension FavouritesPresenter: FavouritesPresenterProtocol {
         let stored = self.realm.objects(IdList.self)
         for index in stored.enumerated() {
             self.favouritesService.getFavouritePhotos(query: index.element.id)
-            print(index.element.id)
         }
     }
     
     func resultCount() -> Int {
-        let stored = realm.objects(IdList.self)
-        return stored.count
+        return favouritesService.results.count
     }
     
     func results() -> [String]? {
         let result = favouritesService.results
         return result
     }
-    
     
 }
